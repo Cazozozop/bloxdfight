@@ -4,105 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Interface</title>
-    <style>
-        body {
-            background-color: #303A59;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            position: relative;
-        }
-        .language-selector {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 8px 12px;
-            border-radius: 10px;
-            border: none;
-            background-color: #5A6BA1;
-            color: white;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .language-selector:hover {
-            background-color: #6F80BA;
-        }
-        .container {
-            text-align: center;
-        }
-        .play-button {
-            padding: 15px 30px;
-            font-size: 24px;
-            font-weight: bold;
-            border: none;
-            border-radius: 15px;
-            background: linear-gradient(to bottom, #FFD25A, #FFB914, #D98A00);
-            color: white;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        .play-button:hover {
-            transform: scale(1.1);
-        }
-        .play-button:active {
-            transform: scale(0.95);
-        }
-        .loading-screen {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .loading-bar {
-            width: 300px;
-            height: 20px;
-            background: #222;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-top: 20px;
-        }
-        .loading-progress {
-            width: 0;
-            height: 100%;
-            background: url('diamond.png') repeat-x;
-            animation: loadingAnimation 3s linear forwards;
-        }
-        @keyframes loadingAnimation {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button class="language-selector">🌍</button>
     <div class="container">
-        <button class="play-button" onclick="startGame()">PLAY</button>
-    </div>
-    <div class="loading-screen" id="loadingScreen">
-        <h2 style="color: white;">Loading...</h2>
-        <div class="loading-bar">
-            <div class="loading-progress"></div>
+        <!-- Sélecteur de langue en haut à gauche -->
+        <div class="language-selector">
+            <button onclick="toggleLanguageMenu()">🌐</button>
+            <div id="language-menu" class="hidden">
+                <button onclick="changeLanguage('en')">English</button>
+                <button onclick="changeLanguage('fr')">Français</button>
+                <button onclick="changeLanguage('it')">Italiano</button>
+                <button onclick="changeLanguage('es')">Español</button>
+                <button onclick="changeLanguage('ru')">Русский</button>
+                <button onclick="changeLanguage('zh')">中文</button>
+                <button onclick="changeLanguage('ja')">日本語</button>
+                <button onclick="changeLanguage('de')">Deutsch</button>
+                <button onclick="changeLanguage('ar')">العربية</button>
+            </div>
+        </div>
+
+        <!-- Boutons principaux -->
+        <div class="main-buttons">
+            <button id="playButton" class="main-button" onclick="startGame()">Play</button>
+            <button class="main-button" onclick="openShop()">Shop</button>
+            <button class="main-button" onclick="startFight()">Fight</button>
+            <button class="main-button" onclick="openUpgrade()">Upgrade</button>
+        </div>
+
+        <!-- Écran de chargement (initialement caché) -->
+        <div id="loading-screen" class="hidden">
+            <div class="loading-bar">
+                <div id="diamond-progress" class="diamond-progress"></div>
+                <img src="diamond.png" id="diamond" class="diamond" alt="Diamond">
+            </div>
         </div>
     </div>
-    <script>
-        function startGame() {
-            document.querySelector('.container').style.display = 'none';
-            document.getElementById('loadingScreen').style.display = 'flex';
-            setTimeout(() => {
-                window.location.href = 'game.html';
-            }, 3000);
-        }
-    </script>
+
+    <script src="languages.json"></script>
+    <script src="script.js"></script>
 </body>
 </html>
