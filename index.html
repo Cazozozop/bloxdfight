@@ -1,70 +1,108 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Jeu 3D avec Blockbench</title>
+    <title>Game Interface</title>
     <style>
-        body { margin: 0; }
-        canvas { display: block; }
+        body {
+            background-color: #303A59;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+        .language-selector {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            border: none;
+            background-color: #5A6BA1;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .language-selector:hover {
+            background-color: #6F80BA;
+        }
+        .container {
+            text-align: center;
+        }
+        .play-button {
+            padding: 15px 30px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(to bottom, #FFD25A, #FFB914, #D98A00);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+        .play-button:active {
+            transform: scale(0.95);
+        }
+        .loading-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .loading-bar {
+            width: 300px;
+            height: 20px;
+            background: #222;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .loading-progress {
+            width: 0;
+            height: 100%;
+            background: url('diamond.png') repeat-x;
+            animation: loadingAnimation 3s linear forwards;
+        }
+        @keyframes loadingAnimation {
+            from { width: 0; }
+            to { width: 100%; }
+        }
     </style>
 </head>
 <body>
-    <!-- Le script Three.js et GLTFLoader sont chargés dans la section <head> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
-    
+    <button class="language-selector">🌍</button>
+    <div class="container">
+        <button class="play-button" onclick="startGame()">PLAY</button>
+    </div>
+    <div class="loading-screen" id="loadingScreen">
+        <h2 style="color: white;">Loading...</h2>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
     <script>
-        // Scène, caméra, et rendu
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-
-        // Lumière
-        const light = new THREE.AmbientLight(0xffffff, 1);  // Lumière ambiante
-        scene.add(light);
-
-        // Chargement du modèle 3D
-        const loader = new THREE.GLTFLoader();
-        loader.load('Cave Golem.glb', function (gltf) {
-            const model = gltf.scene;
-            scene.add(model);
-
-            // Positionner le modèle
-            model.scale.set(1, 1, 1);  // Redimensionner si nécessaire
-            model.position.set(0, 0, 0);  // Positionner correctement
-        }, undefined, function (error) {
-            console.error(error);
-        });
-
-        // Animation de la scène
-        function animate() {
-            requestAnimationFrame(animate);
-
-            // Rotation du modèle (pour qu'il soit animé)
-            scene.traverse(function (child) {
-                if (child.isMesh) {
-                    child.rotation.y += 0.01;  // Rotation lente autour de l'axe Y
-                }
-            });
-
-            renderer.render(scene, camera);
+        function startGame() {
+            document.querySelector('.container').style.display = 'none';
+            document.getElementById('loadingScreen').style.display = 'flex';
+            setTimeout(() => {
+                window.location.href = 'game.html';
+            }, 3000);
         }
-
-        // Position de la caméra
-        camera.position.z = 5;
-
-        // Démarrer l'animation
-        animate();
-
-        // Redimensionner l'écran
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
     </script>
 </body>
 </html>
