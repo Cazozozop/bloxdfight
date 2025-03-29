@@ -1,0 +1,56 @@
+{
+  "en": {
+    "play": "Play",
+    "shop": "Shop",
+    "fight": "Fight",
+    "upgrade": "Upgrade"
+  },
+  "fr": {
+    "play": "Jouer",
+    "shop": "Boutique",
+    "fight": "Combat",
+    "upgrade": "Amélioration"
+  },
+  "it": {
+    "play": "Gioca",
+    "shop": "Negozio",
+    "fight": "Combatti",
+    "upgrade": "Miglioramento"
+  },
+  "es": {
+    "play": "Jugar",
+    "shop": "Tienda",
+    "fight": "Pelea",
+    "upgrade": "Mejorar"
+  },
+  "ru": {
+    "play": "Играть",
+    "shop": "Магазин",
+    "fight": "Бой",
+    "upgrade": "Улучшение"
+  },
+  "zh": {
+    "play": "玩",
+    "shop": "商店",
+    "fight": "战斗",
+    "upgrade": "升级"
+  },
+  "ja": {
+    "play": "プレイ",
+    "shop": "ショップ",
+    "fight": "戦う",
+    "upgrade": "アップグレード"
+  },
+  "de": {
+    "play": "Spielen",
+    "shop": "Shop",
+    "fight": "Kampf",
+    "upgrade": "Upgrade"
+  },
+  "ar": {
+    "play": "لعب",
+    "shop": "متجر",
+    "fight": "قتال",
+    "upgrade": "ترقية"
+  }
+}
