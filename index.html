@@ -10,7 +10,7 @@
     <div class="container">
         <!-- Sélecteur de langue en haut à gauche -->
         <div class="language-selector">
-            <button onclick="toggleLanguageMenu()">🌐</button>
+            <button id="lang-btn" onclick="toggleLanguageMenu()">🌐</button>
             <div id="language-menu" class="hidden">
                 <button onclick="changeLanguage('en')">English</button>
                 <button onclick="changeLanguage('fr')">Français</button>
@@ -41,7 +41,6 @@
         </div>
     </div>
 
-    <script src="languages.json"></script>
     <script src="script.js"></script>
 </body>
 </html>
