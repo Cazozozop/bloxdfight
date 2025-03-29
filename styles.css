@@ -20,12 +20,12 @@ body {
 }
 
 button {
-    background-color: transparent;
+    background-color: #FFB914;
     border: 2px solid #FFB914;
     padding: 20px 40px;
     border-radius: 50px;
     font-size: 24px;
-    color: #FFB914;
+    color: #303A59;
     cursor: pointer;
     transition: all 0.3s ease;
     margin: 0 auto;
@@ -34,8 +34,8 @@ button {
 }
 
 button:hover {
-    background-color: #FFB914;
-    color: #303A59;
+    background-color: #303A59;
+    color: #FFB914;
     box-shadow: 0 0 30px rgba(255, 185, 20, 0.8);
 }
 
@@ -46,6 +46,7 @@ button:active {
 #loading-screen {
     display: none;
     text-align: center;
+    position: relative;
 }
 
 .loading-bar {
@@ -95,6 +96,17 @@ button:active {
     background-color: #47B79A;
 }
 
+.blue-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('blue_particles.png') repeat;
+    animation: particleFall 1s linear infinite;
+    z-index: -1; /* Placer l'effet en arrière-plan */
+}
+
 @keyframes glowing {
     0% {
         box-shadow: 0 0 15px rgba(83, 222, 191, 0.8);
@@ -107,5 +119,14 @@ button:active {
 @keyframes moveDiamond {
     100% {
         left: 100%;
+    }
+}
+
+@keyframes particleFall {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
     }
 }
