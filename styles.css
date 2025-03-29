@@ -19,23 +19,16 @@ body {
     text-align: center;
 }
 
-.language-selector {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 18px;
-}
-
 button {
     background-color: transparent;
     border: 2px solid #FFB914;
-    padding: 15px 30px;
-    margin: 10px;
-    border-radius: 20px;
-    font-size: 18px;
+    padding: 20px 40px;
+    border-radius: 50px;
+    font-size: 24px;
     color: #FFB914;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin: 0 auto;
 }
 
 button:hover {
@@ -47,37 +40,18 @@ button:active {
     transform: scale(0.98);
 }
 
-.main-button {
-    display: inline-block;
-}
-
-#language-menu {
-    background-color: #303A59;
-    position: absolute;
-    top: 40px;
-    left: 0;
-    padding: 10px;
-    border-radius: 10px;
+#loading-screen {
     display: none;
-    border: 2px solid #FFB914;
-}
-
-#language-menu button {
-    display: block;
-    margin: 5px 0;
-    color: #FFB914;
-}
-
-.hidden {
-    display: none;
+    text-align: center;
 }
 
 .loading-bar {
-    width: 100%;
+    width: 80%;
     height: 30px;
     background-color: #ddd;
     border-radius: 10px;
     position: relative;
+    margin-top: 50px;
 }
 
 .diamond-progress {
@@ -89,10 +63,10 @@ button:active {
 }
 
 .diamond {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     position: absolute;
-    top: -10px;
+    top: -15px;
     left: 0;
     animation: moveDiamond 5s linear forwards;
 }
