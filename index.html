@@ -8,36 +8,15 @@
 </head>
 <body>
     <div class="container">
-        <!-- Sélecteur de langue en haut à gauche -->
-        <div class="language-selector">
-            <button id="lang-btn" onclick="toggleLanguageMenu()">🌐</button>
-            <div id="language-menu" class="hidden">
-                <button onclick="changeLanguage('en')">English</button>
-                <button onclick="changeLanguage('fr')">Français</button>
-                <button onclick="changeLanguage('it')">Italiano</button>
-                <button onclick="changeLanguage('es')">Español</button>
-                <button onclick="changeLanguage('ru')">Русский</button>
-                <button onclick="changeLanguage('zh')">中文</button>
-                <button onclick="changeLanguage('ja')">日本語</button>
-                <button onclick="changeLanguage('de')">Deutsch</button>
-                <button onclick="changeLanguage('ar')">العربية</button>
-            </div>
-        </div>
+        <!-- Bouton "Play" principal -->
+        <button id="playButton" class="main-button" onclick="startGame()">Play</button>
+    </div>
 
-        <!-- Boutons principaux -->
-        <div class="main-buttons">
-            <button id="playButton" class="main-button" onclick="startGame()">Play</button>
-            <button class="main-button" onclick="openShop()">Shop</button>
-            <button class="main-button" onclick="startFight()">Fight</button>
-            <button class="main-button" onclick="openUpgrade()">Upgrade</button>
-        </div>
-
-        <!-- Écran de chargement (initialement caché) -->
-        <div id="loading-screen" class="hidden">
-            <div class="loading-bar">
-                <div id="diamond-progress" class="diamond-progress"></div>
-                <img src="diamond.png" id="diamond" class="diamond" alt="Diamond">
-            </div>
+    <!-- Écran de chargement (initialement caché) -->
+    <div id="loading-screen" class="hidden">
+        <div class="loading-bar">
+            <div id="diamond-progress" class="diamond-progress"></div>
+            <img src="diamond.png" id="diamond" class="diamond" alt="Diamond">
         </div>
     </div>
 
